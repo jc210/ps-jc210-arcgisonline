@@ -154,7 +154,7 @@ Function Delete_User_Content ($server, $token, $user) {
         $mylog += $exterminateFolders + "No folders found " + $server + "<br>"           
     } else {            
         Write-Host $exterminateFolders
-        $exterminateFolders = $GetUserContent.folders.ForEach({Invoke-RestMethod -Headers $headers -Method Post -Uri ($vUserURL + "/" + $_.id + "/delete" + $JsonCommon)})
+        $exterminateFolders = $GetUserContent.folders.ForEach({Invoke-RestMethod -Headers $headers -Method Post -Uri ($vUserURL + "/" + $user+ "/" + $_.id + "/delete" + $JsonCommon)})
         $mylog += $exterminateFolders + "<br>"       
     }    
 
